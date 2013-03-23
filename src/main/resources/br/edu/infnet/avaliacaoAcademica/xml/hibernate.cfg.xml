@@ -3,28 +3,31 @@
 	xmlns="http://www.hibernate.org/xsd/hibernate-configuration"
 	xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-configuration hibernate-configuration-4.0.xsd"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
 	<session-factory>
 		<!-- Database connection settings -->
-		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/avaliacao_academica</property>
-        <property name="hibernate.connection.username">postgres</property>
-        <property name="hibernate.connection.password">igansi</property>
-        <property name="hibernate.jdbc.batch_size">30</property>
+		<property name = "hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name = "hibernate.connection.url">jdbc:postgresql://localhost:5432/avaliacao_academica</property>
+        <property name = "hibernate.connection.username">postgres</property>
+        <property name = "hibernate.connection.password">igansi</property>
+        <property name = "hibernate.jdbc.batch_size">30</property>
 
 		<!-- JDBC connection pool (use the built-in) -->
-		<property name="connection.pool_size">1</property>
+		<property name = "connection.pool_size">1</property>
 
 		<!-- SQL dialect -->
-		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name = "hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
 		<!-- Enable Hibernate's automatic session context management -->
-		<property name="current_session_context_class">thread</property>
+		<property name = "current_session_context_class">thread</property>
 
 		<!-- Echo all executed SQL to stdout -->
-		<property name="show_sql">true</property>
-		<property name="hibernate.format_sql">true</property>
+		<property name = "show_sql">true</property>
+		<property name = "hibernate.format_sql">true</property>
 
 		<!-- Drop and re-create the database schema on startup -->
-		<property name="hibernate.ddl_auto">update</property>
+		<property name = "hibernate.ddl_auto">update</property>
 	</session-factory>
+	
+	<mapping class = "br.edu.infnet.avaliacaoAcademica.domain.hibernate.Student"/>
 </hibernate-configuration>
