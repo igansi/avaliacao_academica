@@ -1,4 +1,4 @@
-package br.edu.infnet.avaliacaoAcademica.domain.hibernate;
+package br.edu.infnet.avaliacaoAcademica.hibernate.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import br.edu.infnet.avaliacaoAcademica.domain.hibernate.property.StudentDomainProperty;
+import br.edu.infnet.avaliacaoAcademica.hibernate.domain.property.StudentDomainProperty;
 
 @Entity(name = StudentDomainProperty.TABLE_NAME)
 public class Student {
