@@ -22,19 +22,19 @@ body {
 		<p:panel header="Identifica&ccedil;&atilde;o"
 			style="width:470px;margin:10% 25% 10% 25%;">
 			<h:panelGrid columns="3">
-				<h:outputLabel for="login" value="Login" />
-				<p:inputText id="login" required="true"
-					value="#{usuarioBean.usuario.login}" label="Login">
+				<h:outputLabel for="userName" value="Login" />
+				<p:inputText id="userName" required="true"
+					value="#{LOGIN_MANAGED_BEAN.loggedStudent.userName}" label="Login">
 				</p:inputText>
-				<p:message for="login" />
+				<p:message for="userName" />
 
-				<h:outputLabel for="senha" value="Senha" />
-				<p:password id="senha" value="#{usuarioBean.usuario.senha}"
+				<h:outputLabel for="password" value="Senha" />
+				<p:password id="password" value="#{LOGIN_MANAGED_BEAN.loggedStudent.password}"
 					required="true" label="Senha">
 				</p:password>
-				<p:message for="senha" />
+				<p:message for="password" />
 
-				<h:commandButton value="Entrar" action="#{usuarioBean.efetuarLogin}" />
+				<h:commandButton value="Entrar" action="#{LOGIN_MANAGED_BEAN.validarLogin}" />
 			</h:panelGrid>
 		</p:panel>
 

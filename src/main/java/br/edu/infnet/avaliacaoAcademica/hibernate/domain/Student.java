@@ -17,13 +17,13 @@ public class Student {
     private int id;
 
     @Column(name = StudentDomainProperty.COLUMN_NAME_NAME, length = StudentDomainProperty.COLUMN_NAME_LENGHT)
-    private String nome;
+    private String name;
 
     @Column(name = StudentDomainProperty.COLUMN_EMAIL_NAME, length = StudentDomainProperty.COLUMN_EMAIL_LENGHT)
     private String email;
 
-    @Column(name = StudentDomainProperty.COLUMN_USER_NAME, length = StudentDomainProperty.COLUMN_USER_LENGHT)
-    private String user;
+    @Column(name = StudentDomainProperty.COLUMN_USER_NAME, length = StudentDomainProperty.COLUMN_USER_NAME_LENGHT)
+    private String userName;
 
     @Column(name = StudentDomainProperty.COLUMN_PASSWORD_NAME, length = StudentDomainProperty.COLUMN_PASSWORD_LENGHT)
     private String password;
@@ -38,12 +38,12 @@ public class Student {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String nome) {
+        this.name = nome;
     }
 
     public String getEmail() {
@@ -54,12 +54,12 @@ public class Student {
         this.email = email;
     }
 
-    public String getUser() {
-        return user;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUserName(String user) {
+        this.userName = user;
     }
 
     public String getPassword() {
@@ -77,10 +77,10 @@ public class Student {
 
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + id;
-        result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
         result = prime * result
                 + ((password == null) ? 0 : password.hashCode());
-        result = prime * result + ((user == null) ? 0 : user.hashCode());
+        result = prime * result + ((userName == null) ? 0 : userName.hashCode());
         return result;
     }
 
@@ -100,26 +100,26 @@ public class Student {
             return false;
         if (id != other.id)
             return false;
-        if (nome == null) {
-            if (other.nome != null)
+        if (name == null) {
+            if (other.name != null)
                 return false;
-        } else if (!nome.equals(other.nome))
+        } else if (!name.equals(other.name))
             return false;
         if (password == null) {
             if (other.password != null)
                 return false;
         } else if (!password.equals(other.password))
             return false;
-        if (user == null) {
-            if (other.user != null)
+        if (userName == null) {
+            if (other.userName != null)
                 return false;
-        } else if (!user.equals(other.user))
+        } else if (!userName.equals(other.userName))
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return String.format("Student [id=%s, nome=%s, email=%s, user=%s, password=%s]", id, nome, email, user, password);
+        return String.format("Student [id=%s, nome=%s, email=%s, user=%s, password=%s]", id, name, email, userName, password);
     }
 }
