@@ -42,9 +42,31 @@ public final class ManagedBeanHelper {
      * Redireciona a navegação para a URL especificada.
      * @param url URL na qual se deseja navegar
      */
-    public static void handleNavigation(String url) {
+    public static void redirectNavigation(String url) {
+//        HttpServletRequest request = (HttpServletRequest) getContext().getExternalContext().getRequest();
+//        HttpServletResponse response = (HttpServletResponse) getContext().getExternalContext().getResponse();
+//
+//        try {
+//            request.getRequestDispatcher(url).forward(request, response);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         getContext().getApplication().getNavigationHandler().handleNavigation(getContext(), null, url);
     }
+
+//    /**
+//     * Redireciona a navegação para a URL especificada.
+//     * @param url URL na qual se deseja navegar
+//     */
+//    public static void redirectNavigation(String url) {
+//        try {
+//            getContext().getExternalContext().dispatch(url);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     private static HttpSession getHttpSession() {
         return (HttpSession) getContext().getExternalContext().getSession(false);

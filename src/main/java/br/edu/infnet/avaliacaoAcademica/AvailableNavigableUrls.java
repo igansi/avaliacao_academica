@@ -5,7 +5,8 @@ package br.edu.infnet.avaliacaoAcademica;
  */
 public enum AvailableNavigableUrls {
     LOGIN("/login.jsf"),
-    STUDENT("/facets/student.jsf");
+    MENU("/facets/menu.jsf"),
+    STUDENT("/facets/student_crud.jsf");
     
     private String url;
 

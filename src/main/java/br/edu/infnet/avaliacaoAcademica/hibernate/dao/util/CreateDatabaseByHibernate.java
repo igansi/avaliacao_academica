@@ -1,4 +1,4 @@
-package br.edu.infnet.avaliacaoAcademica.hibernate.dao;
+package br.edu.infnet.avaliacaoAcademica.hibernate.dao.util;
 
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;

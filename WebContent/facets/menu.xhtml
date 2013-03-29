@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+	</h:head>
+	<h:body>
+		<p:layout fullPage="true">
+	
+			<p:layoutUnit position="north" size="100">
+                <h3>Sistema de Avaliação Acadêmica</h3>
+			</p:layoutUnit>
+	
+			<p:layoutUnit position="west" size="200" header="Menu:" resizable="true" closable="false" collapsible="true">
+                <h:form>
+				    <p:growl id="messages"/>
+				    <p:menu>
+			            <p:menuitem value="CRUD Aluno" />
+			            <p:menuitem value="Responder Avaliação" /> 
+				    </p:menu>
+				</h:form>
+			</p:layoutUnit>
+	
+			<p:layoutUnit position="center">
+				<h:form id="dynamic_content">
+	                This fullPage layout consists of five different layoutUnits which are resizable and closable by default.
+	            </h:form>
+			</p:layoutUnit>
+	
+		</p:layout>
+	
+	</h:body>
+</html>

@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="frmFornecedor">
+		<p:panelGrid columns="2" style="horizontal-align:center">
+			<h:outputText value="id:" />
+			<p:inputText value="#{usuarioMB.usuario.id}" />
+
+			<p:outputLabel for="nome" value="Nome:" />
+			<p:inputText id="nome" value="#{usuarioMB.usuario.nome}" />
+
+			<p:outputLabel for="telefone" value="Telefone:" />
+			<p:inputText id="telefone" value="#{usuarioMB.usuario.telefone}" />
+
+			<p:outputLabel for="login" value="login" />
+			<p:inputText id="login" value="#{usuarioMB.usuario.login}" />
+
+			<p:outputLabel for="senha" value="senha" />
+			<p:password id="senha" value="#{usuarioMB.usuario.senha}" />
+
+
+
+				<p:commandButton action="#{usuarioMB.salvar}" value="Salvar"
+					update="retorno" />
+				<p:commandButton action="#{usuarioMB.atualizar}" value="Atualizar"
+					update="retorno" />
+				<p:commandButton action="#{usuarioMB.deletar}" value="Deletar"
+					update="retorno" />
+				<p:commandButton action="#{usuarioMB.listar}" update="retorno"
+					value="Listar" />
+
+			</p:panelGrid>
+	
+			
+			<p:panelGrid columns="2">
+				<p:autoComplete value="#{usuarioMB.usuarioRetorno}" id="basicPojo"
+					completeMethod="#{usuarioMB.completeUsuario}" var="f"
+					converter="usuarioConverter" itemLabel="#{f.nome}" itemValue="#{f}"
+					forceSelection="true" />
+
+				<h:commandButton action="#{usuarioMB.consultar}" value="Consultar"
+					update="retorno" />
+			</p:panelGrid>
+
+
+
+
+			<p:panel id="retorno">
+				<h:outputText value="#{usuarioMB.usuarioRetorno}" />
+				<p:dataTable id="tblRetorno" var="registro"
+					value="#{usuarioMB.lista}">
+					<p:column headerText="id">
+						<h:outputText value="#{registro.id}" />
+					</p:column>
+					<p:column headerText="Nome">
+						<h:outputText value="#{registro.nome}" />
+					</p:column>
+
+					<p:column headerText="Telefone">
+						<h:outputText value="#{registro.telefone}" />
+					</p:column>
+				</p:dataTable>
+			</p:panel>`
+	
+	</h:form>
+</h:body>
+</html>

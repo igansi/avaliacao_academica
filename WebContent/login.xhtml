@@ -24,7 +24,7 @@ body {
 			<h:panelGrid columns="3">
 				<h:outputLabel for="userName" value="Login" />
 				<p:inputText id="userName" required="true"
-					value="#{LOGIN_MANAGED_BEAN.loggedStudent.userName}" label="Login">
+					value="#{LOGIN_MANAGED_BEAN.loggedStudent.login}" label="Login">
 				</p:inputText>
 				<p:message for="userName" />
 
@@ -34,7 +34,7 @@ body {
 				</p:password>
 				<p:message for="password" />
 
-				<h:commandButton value="Entrar" action="#{LOGIN_MANAGED_BEAN.validarLogin}" />
+				<h:commandButton value="Entrar" action="#{LOGIN_MANAGED_BEAN.efetuarLogin}" />
 			</h:panelGrid>
 		</p:panel>
 

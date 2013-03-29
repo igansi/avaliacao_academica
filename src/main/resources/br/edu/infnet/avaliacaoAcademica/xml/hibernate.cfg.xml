@@ -8,6 +8,7 @@
 		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/avaliacao_academica</property>
 		<property name="hibernate.connection.username">postgres</property>
 		<property name="hibernate.connection.password">igansi</property>
+		<property name="hibernate.default_schema">public</property>
 		<property name="hibernate.jdbc.batch_size">30</property>
 
 		<!-- JDBC connection pool (use the built-in) -->
@@ -25,7 +26,5 @@
 
 		<!-- Drop and re-create the database schema on startup -->
 		<property name="hibernate.ddl_auto">update</property>
-
-		<mapping class="br.edu.infnet.avaliacaoAcademica.hibernate.domain.Student" />
 	</session-factory>
 </hibernate-configuration>

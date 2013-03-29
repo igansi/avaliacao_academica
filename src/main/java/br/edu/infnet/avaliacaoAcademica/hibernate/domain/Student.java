@@ -1,16 +1,22 @@
 package br.edu.infnet.avaliacaoAcademica.hibernate.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import br.edu.infnet.avaliacaoAcademica.hibernate.domain.property.StudentDomainProperty;
 
-@Entity(name = StudentDomainProperty.TABLE_NAME)
-public class Student {
-    
+@Entity
+@Table(name = StudentDomainProperty.TABLE_NAME)
+public class Student implements Serializable {
+
+    private static final long serialVersionUID = -1641520393231292357L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = StudentDomainProperty.COLUMN_ID_NAME)
@@ -22,8 +28,8 @@ public class Student {
     @Column(name = StudentDomainProperty.COLUMN_EMAIL_NAME, length = StudentDomainProperty.COLUMN_EMAIL_LENGHT)
     private String email;
 
-    @Column(name = StudentDomainProperty.COLUMN_USER_NAME, length = StudentDomainProperty.COLUMN_USER_NAME_LENGHT)
-    private String userName;
+    @Column(name = StudentDomainProperty.COLUMN_USER_LOGIN, length = StudentDomainProperty.COLUMN_USER_LOGIN_LENGHT)
+    private String login;
 
     @Column(name = StudentDomainProperty.COLUMN_PASSWORD_NAME, length = StudentDomainProperty.COLUMN_PASSWORD_LENGHT)
     private String password;
@@ -54,12 +60,12 @@ public class Student {
         this.email = email;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getLogin() {
+        return login;
     }
 
-    public void setUserName(String user) {
-        this.userName = user;
+    public void setLogin(String user) {
+        this.login = user;
     }
 
     public String getPassword() {
@@ -80,7 +86,7 @@ public class Student {
         result = prime * result + ((name == null) ? 0 : name.hashCode());
         result = prime * result
                 + ((password == null) ? 0 : password.hashCode());
-        result = prime * result + ((userName == null) ? 0 : userName.hashCode());
+        result = prime * result + ((login == null) ? 0 : login.hashCode());
         return result;
     }
 
@@ -110,16 +116,16 @@ public class Student {
                 return false;
         } else if (!password.equals(other.password))
             return false;
-        if (userName == null) {
-            if (other.userName != null)
+        if (login == null) {
+            if (other.login != null)
                 return false;
-        } else if (!userName.equals(other.userName))
+        } else if (!login.equals(other.login))
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return String.format("Student [id=%s, nome=%s, email=%s, user=%s, password=%s]", id, name, email, userName, password);
+        return String.format("Student [id=%s, nome=%s, email=%s, user=%s, password=%s]", id, name, email, login, password);
     }
 }
