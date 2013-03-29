@@ -1,19 +1,97 @@
 package br.edu.infnet.avaliacaoAcademica.managedBean;
 
+import java.text.MessageFormat;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
+import br.edu.infnet.avaliacaoAcademica.hibernate.dao.StudentDao;
+import br.edu.infnet.avaliacaoAcademica.hibernate.dao.core.exception.DaoException;
 import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Student;
 
 /**
  * {@link ManagedBean Controlador} para o objeto de domínio {@link Student estudante}. 
  */
-@ManagedBean
+@ManagedBean(name = ManagedBeanType.STUDENT_MB)
 @RequestScoped
 public class StudentMB {
+    
+    private static final String STUDENT_CRUD_SUCCESS = "Estudante {0} com sucesso!";
+    private static final String ERROR_CRUD_STUDENT_PATTERN_TEXT = "Erro ao {0} estudante.";
+    private static final String ADDED = "cadastrado";
+    private static final String REMOVED = "removido";
+    private static final String UPDATED = "atualizar";
+    private static final String ADD = "cadastrar";
+    private static final String REMOVE = "remover";
+    private static final String UPDATE = "atualizar";
+
+    private Student student;
+    private StudentDao dao;
 
     public StudentMB() {
-        // TODO Auto-generated constructor stub
+        student = new Student();
+        dao = new StudentDao();
     }
 
+    /**
+     * Adiciona um {@linkplain Student estudante}.
+     */
+    public void add() {
+        try {
+            dao.add(student);
+            FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(MessageFormat.format(STUDENT_CRUD_SUCCESS, ADDED)));
+        } catch (DaoException e) {
+            FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(MessageFormat.format(ERROR_CRUD_STUDENT_PATTERN_TEXT, ADD)));
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Remove um {@linkplain Student estudante}.
+     */
+    public void remove() {
+        try {
+            dao.remove(student);
+            FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(MessageFormat.format(STUDENT_CRUD_SUCCESS, REMOVED)));
+        } catch (DaoException e) {
+            FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(MessageFormat.format(ERROR_CRUD_STUDENT_PATTERN_TEXT, REMOVE)));
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Edita um {@linkplain Student estudante}.
+     */
+    public void update() {
+        try {
+            dao.update(student);
+            FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(MessageFormat.format(STUDENT_CRUD_SUCCESS, UPDATED)));
+        } catch (DaoException e) {
+            FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(MessageFormat.format(ERROR_CRUD_STUDENT_PATTERN_TEXT, UPDATE)));
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Busca um {@linkplain student estudante} pelo nome.
+     */
+    public void findByName() {
+        student = dao.findByFullName(getStudent().getName());
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 }

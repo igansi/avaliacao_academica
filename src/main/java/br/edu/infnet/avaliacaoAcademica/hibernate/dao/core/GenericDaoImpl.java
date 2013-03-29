@@ -6,9 +6,15 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import br.edu.infnet.avaliacaoAcademica.hibernate.dao.core.exception.DaoException;
 import br.edu.infnet.avaliacaoAcademica.hibernate.dao.util.HibernateSessionFactory;
 
 public class GenericDaoImpl<E> implements IGenericDao<E> {
+
+    private static final String ERROR_WHILE_CRUD_ENTITY_REPOSITORY_PATTERN_TEXT = "Error while %s entity %s in repository.";
+    private static final String ADDING = "adding";
+    private static final String REMOVING = "removing";
+    private static final String EDITING = "editing";
 
     private Class<E> clazz;
     private SessionFactory factory;
@@ -19,7 +25,7 @@ public class GenericDaoImpl<E> implements IGenericDao<E> {
     }
 
     @Override
-    public void add(E entity) {
+    public void add(E entity) throws DaoException {
         Session session = factory.openSession();
 
         try {
@@ -28,14 +34,14 @@ public class GenericDaoImpl<E> implements IGenericDao<E> {
             session.getTransaction().commit();
         } catch (HibernateException e) {
             session.getTransaction().rollback();
-            e.printStackTrace();
+            throw new DaoException(String.format(ERROR_WHILE_CRUD_ENTITY_REPOSITORY_PATTERN_TEXT, ADDING, entity), e);
         } finally {
             session.close();
         }
     }
 
     @Override
-    public void remove(E entity) {
+    public void remove(E entity) throws DaoException {
         Session session = factory.openSession();
 
         try {
@@ -44,14 +50,14 @@ public class GenericDaoImpl<E> implements IGenericDao<E> {
             session.getTransaction().commit();
         } catch (HibernateException e) {
             session.getTransaction().rollback();
-            e.printStackTrace();
+            throw new DaoException(String.format(ERROR_WHILE_CRUD_ENTITY_REPOSITORY_PATTERN_TEXT, REMOVING, entity), e);
         } finally {
             session.close();
         }
     }
 
     @Override
-    public void update(E entity) {
+    public void update(E entity) throws DaoException {
         Session session = factory.openSession();
 
         try {
@@ -60,7 +66,7 @@ public class GenericDaoImpl<E> implements IGenericDao<E> {
             session.getTransaction().commit();
         } catch (HibernateException e) {
             session.getTransaction().rollback();
-            e.printStackTrace();
+            throw new DaoException(String.format(ERROR_WHILE_CRUD_ENTITY_REPOSITORY_PATTERN_TEXT, EDITING, entity), e);
         } finally {
             session.close();
         }
