@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import br.edu.infnet.avaliacaoAcademica.AvailableNavigableUrls;
 import br.edu.infnet.avaliacaoAcademica.filter.SessionProperty;
 import br.edu.infnet.avaliacaoAcademica.hibernate.dao.StudentDao;
 import br.edu.infnet.avaliacaoAcademica.hibernate.dao.core.exception.DaoException;
@@ -70,6 +71,9 @@ public class EvaluationFormMB {
         return new Question(questionId);
     }
 
+    /**
+     * Envia a avaliação acadêmica do estudante para o repositório.
+     */
     public void enviarAvaliacao() {
         loggedStudent.setQuestions(new ArrayList<Question>());
         loggedStudent.addQuestion(q1);
@@ -96,6 +100,13 @@ public class EvaluationFormMB {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(ERROR_SEND_EVALUATION));
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Volta para o menu da aplicação.
+     */
+    public void backMenu() {
+        ManagedBeanHelper.redirectNavigation(AvailableNavigableUrls.MENU.getUrl());
     }
 
     public Question getQ1() {
