@@ -13,27 +13,21 @@
 			</p:layoutUnit>
 	
 			<p:layoutUnit position="west" size="200" header="Menu:" resizable="true" closable="false" collapsible="true">
-                <h:form>
-				    <p:menu>
-			            <p:menuitem value="CRUD Aluno" update=":dynamic_content" >
-			                <f:setPropertyActionListener target="#{MENU_MANAGED_BEAN.url}" value="/facets/student_crud.jsf" />
-			            </p:menuitem>
-
-			            <p:menuitem value="Responder Avaliação" update=":dynamic_content" >
-                            <f:setPropertyActionListener target="#{MENU_MANAGED_BEAN.url}" value="/facets/evaluation_form.jsf" />
-                        </p:menuitem>
-
-			            <p:menuitem action="#{MENU_MANAGED_BEAN.logoff}" value="Logoff" />
-				    </p:menu>
-				</h:form>
+			    <ui:insert name="appMenu">
+	                <h:form>
+					    <p:menu>
+				            <p:menuitem value="CRUD Aluno" url="/facets/student_crud.jsf" />
+				            <p:menuitem value="Responder Avaliação" url="/facets/evaluation_form.jsf" />
+				            <p:menuitem action="#{MENU_MANAGED_BEAN.logoff}" value="Logoff" />
+					    </p:menu>
+					</h:form>
+				</ui:insert>
 			</p:layoutUnit>
 	
 			<p:layoutUnit position="center" rendered="true">
-				<h:panelGroup id="dynamic_content">
-				        <!--  <ui:include src="#{MENU_MANAGED_BEAN.url}" /> -->
-				        <ui:include src="/facets/evaluation_form.xhtml" />
-				</h:panelGroup>
-			</p:layoutUnit>
+				<ui:insert name="pageContent">
+				</ui:insert>
+		</p:layoutUnit>
 	
 		</p:layout>
 	

@@ -7,7 +7,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import br.edu.infnet.avaliacaoAcademica.AvailableNavigableUrls;
 import br.edu.infnet.avaliacaoAcademica.dao.core.DaoException;
 import br.edu.infnet.avaliacaoAcademica.dao.hibernate.StudentDao;
 import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Student;
@@ -93,13 +92,6 @@ public class StudentMB {
      */
     public void newStudent() {
         student = new Student();
-    }
-    
-    /**
-     * Volta para o menu da aplicação.
-     */
-    public void backMenu() {
-        ManagedBeanHelper.redirectNavigation(AvailableNavigableUrls.MENU.getUrl());
     }
 
     public Student getStudent() {

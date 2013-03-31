@@ -1,40 +1,44 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 	<h:head>
 	</h:head>
 	<h:body>
-		<h:form id="crud_form">
+	    <ui:composition template="menu.xhtml">
+            <ui:define name="pageContent">
+				<h:form id="crud_form">
+				
+				    <!-- Campos CRUD -->
+					<p:panelGrid id="crud_panel" columns="2" style="horizontal-align:center">
+		    			<p:outputLabel for="id" value="ID:" />
+		                <p:inputText id="id" resize="10" maxlength="10" value="#{STUDENT_MANAGED_BEAN.student.id}" />
 		
-		    <!-- Campos CRUD -->
-			<p:panelGrid id="crud_panel" columns="2" style="horizontal-align:center">
-    			<p:outputLabel for="id" value="ID:" />
-                <p:inputText id="id" resize="10" maxlength="10" value="#{STUDENT_MANAGED_BEAN.student.id}" />
-
-				<p:outputLabel for="name" value="Nome:" />
-				<p:inputText id="name" size="50" maxlength="50" value="#{STUDENT_MANAGED_BEAN.student.name}" />
-	
-				<p:outputLabel for="email" value="Email:" />
-				<p:inputText id="email" size="50" maxlength="50" value="#{STUDENT_MANAGED_BEAN.student.email}" />
-	
-				<p:outputLabel for="login" value="Login:" />
-				<p:inputText id="login" size="8" maxlength="8" value="#{STUDENT_MANAGED_BEAN.student.login}" />
-	
-				<p:outputLabel for="password" value="Senha:" />
-				<p:password id="password" size="12" maxlength="12" redisplay="true" value="#{STUDENT_MANAGED_BEAN.student.password}" />
-
-			</p:panelGrid>
+						<p:outputLabel for="name" value="Nome:" />
+						<p:inputText id="name" size="50" maxlength="50" value="#{STUDENT_MANAGED_BEAN.student.name}" />
 			
-			<!-- Botões CRUD -->
-            <p:panelGrid columns="3" style="horizontal-align:center">
-                <p:commandButton action="#{STUDENT_MANAGED_BEAN.newStudent}" value="Novo" update=":crud_form:crud_panel "/>
-				<p:commandButton action="#{STUDENT_MANAGED_BEAN.add}" value="Adicionar" />
-				<p:commandButton action="#{STUDENT_MANAGED_BEAN.update}" value="Editar" />
-				<p:commandButton action="#{STUDENT_MANAGED_BEAN.remove}" value="Remover" />
-				<p:commandButton action="#{STUDENT_MANAGED_BEAN.findByName}" value="Procurar" update=":crud_form:crud_panel" />
-				<p:commandButton action="#{STUDENT_MANAGED_BEAN.backMenu}" value="Voltar" />
-			</p:panelGrid>
-		</h:form>
+						<p:outputLabel for="email" value="Email:" />
+						<p:inputText id="email" size="50" maxlength="50" value="#{STUDENT_MANAGED_BEAN.student.email}" />
+			
+						<p:outputLabel for="login" value="Login:" />
+						<p:inputText id="login" size="8" maxlength="8" value="#{STUDENT_MANAGED_BEAN.student.login}" />
+			
+						<p:outputLabel for="password" value="Senha:" />
+						<p:password id="password" size="12" maxlength="12" redisplay="true" value="#{STUDENT_MANAGED_BEAN.student.password}" />
+		
+					</p:panelGrid>
+					
+					<!-- Botões CRUD -->
+		            <p:panelGrid columns="3" style="horizontal-align:center">
+		                <p:commandButton action="#{STUDENT_MANAGED_BEAN.newStudent}" value="Novo" update=":crud_form:crud_panel "/>
+						<p:commandButton action="#{STUDENT_MANAGED_BEAN.add}" value="Adicionar" />
+						<p:commandButton action="#{STUDENT_MANAGED_BEAN.update}" value="Editar" />
+						<p:commandButton action="#{STUDENT_MANAGED_BEAN.remove}" value="Remover" />
+						<p:commandButton action="#{STUDENT_MANAGED_BEAN.findByName}" value="Procurar" update=":crud_form:crud_panel" />
+					</p:panelGrid>
+				</h:form>
+            </ui:define>
+        </ui:composition>	
 	</h:body>
 </html>

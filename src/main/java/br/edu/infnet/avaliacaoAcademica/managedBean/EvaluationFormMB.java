@@ -8,7 +8,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
-import br.edu.infnet.avaliacaoAcademica.AvailableNavigableUrls;
 import br.edu.infnet.avaliacaoAcademica.dao.core.DaoException;
 import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Question;
 import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Student;
@@ -101,13 +100,6 @@ public class EvaluationFormMB {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(ERROR_SEND_EVALUATION));
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Volta para o menu da aplicação.
-     */
-    public void backMenu() {
-        ManagedBeanHelper.redirectNavigation(AvailableNavigableUrls.MENU.getUrl());
     }
 
     public Question getQ1() {
