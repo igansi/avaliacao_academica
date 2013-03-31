@@ -1,4 +1,4 @@
-package br.edu.infnet.avaliacaoAcademica.hibernate.dao.core;
+package br.edu.infnet.avaliacaoAcademica.dao.hibernate;
 
 import java.util.List;
 
@@ -6,8 +6,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import br.edu.infnet.avaliacaoAcademica.hibernate.dao.core.exception.DaoException;
-import br.edu.infnet.avaliacaoAcademica.hibernate.dao.util.HibernateSessionFactory;
+import br.edu.infnet.avaliacaoAcademica.dao.core.DaoException;
+import br.edu.infnet.avaliacaoAcademica.dao.core.IGenericDao;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.util.HibernateSessionFactory;
 
 public class GenericDaoImpl<E> implements IGenericDao<E> {
 

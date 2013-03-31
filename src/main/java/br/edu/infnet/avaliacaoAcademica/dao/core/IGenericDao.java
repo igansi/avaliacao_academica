@@ -1,8 +1,7 @@
-package br.edu.infnet.avaliacaoAcademica.hibernate.dao.core;
+package br.edu.infnet.avaliacaoAcademica.dao.core;
 
 import java.util.List;
 
-import br.edu.infnet.avaliacaoAcademica.hibernate.dao.core.exception.DaoException;
 
 /**
  * Protocolo que entidades que desejam ser persistidas devem cumprir.

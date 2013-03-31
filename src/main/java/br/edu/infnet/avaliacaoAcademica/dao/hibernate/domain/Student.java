@@ -1,4 +1,4 @@
-package br.edu.infnet.avaliacaoAcademica.hibernate.domain;
+package br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,8 +15,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.edu.infnet.avaliacaoAcademica.hibernate.domain.property.QuestionDomainProperty;
-import br.edu.infnet.avaliacaoAcademica.hibernate.domain.property.StudentDomainProperty;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.property.QuestionDomainProperty;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.property.StudentDomainProperty;
 
 @Entity
 @Table(name = StudentDomainProperty.TABLE_NAME)

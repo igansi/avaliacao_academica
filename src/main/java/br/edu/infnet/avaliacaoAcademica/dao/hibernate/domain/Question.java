@@ -1,4 +1,4 @@
-package br.edu.infnet.avaliacaoAcademica.hibernate.domain;
+package br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import br.edu.infnet.avaliacaoAcademica.hibernate.domain.property.QuestionDomainProperty;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.property.QuestionDomainProperty;
 
 @Entity
 @Table(name = QuestionDomainProperty.TABLE_NAME)

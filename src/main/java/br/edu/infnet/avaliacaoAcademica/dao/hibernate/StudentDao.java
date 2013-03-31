@@ -1,4 +1,4 @@
-package br.edu.infnet.avaliacaoAcademica.hibernate.dao;
+package br.edu.infnet.avaliacaoAcademica.dao.hibernate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,9 +7,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import br.edu.infnet.avaliacaoAcademica.hibernate.dao.core.GenericDaoImpl;
-import br.edu.infnet.avaliacaoAcademica.hibernate.dao.util.HibernateSessionFactory;
-import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Student;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Student;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.util.HibernateSessionFactory;
 
 /**
  * DAO para persistência da entidade {@link Student estudante}.

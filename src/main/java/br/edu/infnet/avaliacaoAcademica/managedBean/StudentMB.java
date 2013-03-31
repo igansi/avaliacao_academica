@@ -8,9 +8,9 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import br.edu.infnet.avaliacaoAcademica.AvailableNavigableUrls;
-import br.edu.infnet.avaliacaoAcademica.hibernate.dao.StudentDao;
-import br.edu.infnet.avaliacaoAcademica.hibernate.dao.core.exception.DaoException;
-import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Student;
+import br.edu.infnet.avaliacaoAcademica.dao.core.DaoException;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.StudentDao;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Student;
 
 /**
  * {@link ManagedBean Controlador} para o objeto de domínio {@link Student estudante}. 

@@ -1,6 +1,6 @@
-package br.edu.infnet.avaliacaoAcademica.hibernate.domain.property;
+package br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.property;
 
-import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Student;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Student;
 
 /**
  * Define as propriedades da entidade {@link Student estudante}.

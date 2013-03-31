@@ -1,12 +1,12 @@
-package br.edu.infnet.avaliacaoAcademica.hibernate.dao.util;
+package br.edu.infnet.avaliacaoAcademica.dao.hibernate.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
-import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Question;
-import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Student;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Question;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Student;
 
 /**
  * Factory para criar uma sessão com o hibernate.

@@ -1,10 +1,10 @@
-package br.edu.infnet.avaliacaoAcademica.hibernate.dao.util;
+package br.edu.infnet.avaliacaoAcademica.dao.hibernate.util;
 
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
-import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Question;
-import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Student;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Question;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Student;
 
 /**
  * Cria a base de dados baseado nas configurações do hibernate.

@@ -1,4 +1,4 @@
-package br.edu.infnet.avaliacaoAcademica.hibernate.dao.core.exception;
+package br.edu.infnet.avaliacaoAcademica.dao.core;
 
 /**
  * Exceção indica problema ao acesso ao repositório via DAO.

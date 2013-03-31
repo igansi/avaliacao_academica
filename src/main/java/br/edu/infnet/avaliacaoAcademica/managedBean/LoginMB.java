@@ -6,9 +6,9 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import br.edu.infnet.avaliacaoAcademica.AvailableNavigableUrls;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.StudentDao;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Student;
 import br.edu.infnet.avaliacaoAcademica.filter.SessionProperty;
-import br.edu.infnet.avaliacaoAcademica.hibernate.dao.StudentDao;
-import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Student;
 
 /**
  * {@link ManagedBean Controlador} para requisições de login no sistema. 
