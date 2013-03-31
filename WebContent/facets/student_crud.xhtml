@@ -27,11 +27,13 @@
 			</p:panelGrid>
 			
 			<!-- Botões CRUD -->
-            <p:panelGrid columns="4" style="horizontal-align:center">
+            <p:panelGrid columns="3" style="horizontal-align:center">
+                <p:commandButton action="#{STUDENT_MANAGED_BEAN.newStudent}" value="Novo" update=":crud_form:crud_panel "/>
 				<p:commandButton action="#{STUDENT_MANAGED_BEAN.add}" value="Adicionar" />
 				<p:commandButton action="#{STUDENT_MANAGED_BEAN.update}" value="Editar" />
 				<p:commandButton action="#{STUDENT_MANAGED_BEAN.remove}" value="Remover" />
-				<p:commandButton action="#{STUDENT_MANAGED_BEAN.findByName}" value="Procurar" update=":crud_form:crud_panel"/>
+				<p:commandButton action="#{STUDENT_MANAGED_BEAN.findByName}" value="Procurar" update=":crud_form:crud_panel" />
+				<p:commandButton action="#{STUDENT_MANAGED_BEAN.backMenu}" value="Voltar" />
 			</p:panelGrid>
 		</h:form>
 	</h:body>

@@ -4,9 +4,10 @@ import java.text.MessageFormat;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import br.edu.infnet.avaliacaoAcademica.AvailableNavigableUrls;
 import br.edu.infnet.avaliacaoAcademica.hibernate.dao.StudentDao;
 import br.edu.infnet.avaliacaoAcademica.hibernate.dao.core.exception.DaoException;
 import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Student;
@@ -15,7 +16,7 @@ import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Student;
  * {@link ManagedBean Controlador} para o objeto de domínio {@link Student estudante}. 
  */
 @ManagedBean(name = ManagedBeanType.STUDENT_MB)
-@RequestScoped
+@SessionScoped
 public class StudentMB {
     
     private static final String STUDENT_CRUD_SUCCESS = "Estudante {0} com sucesso!";
@@ -85,6 +86,20 @@ public class StudentMB {
      */
     public void findByName() {
         student = dao.findByFullName(getStudent().getName());
+    }
+
+    /**
+     * Cria um novo {@linkplain student estudante} de forma que o formulário fique em branco.
+     */
+    public void newStudent() {
+        student = new Student();
+    }
+    
+    /**
+     * Volta para o menu da aplicação.
+     */
+    public void backMenu() {
+        ManagedBeanHelper.redirectNavigation(AvailableNavigableUrls.MENU.getUrl());
     }
 
     public Student getStudent() {
