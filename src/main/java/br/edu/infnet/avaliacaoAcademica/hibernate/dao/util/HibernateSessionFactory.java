@@ -5,6 +5,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
+import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Question;
 import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Student;
 
 /**
@@ -20,7 +21,9 @@ public enum HibernateSessionFactory {
     private HibernateSessionFactory() {
         Configuration configuration = new Configuration();
         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(
-                configuration.configure(HIBERNATE_CFG_XML_FILE).addAnnotatedClass(Student.class).getProperties()).buildServiceRegistry();
+                configuration.configure(HIBERNATE_CFG_XML_FILE)
+                .addAnnotatedClass(Student.class)
+                .addAnnotatedClass(Question.class).getProperties()).buildServiceRegistry();
 
         session = configuration.buildSessionFactory(serviceRegistry);
     }

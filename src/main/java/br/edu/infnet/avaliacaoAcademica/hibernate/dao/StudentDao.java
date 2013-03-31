@@ -64,5 +64,5 @@ public class StudentDao extends GenericDaoImpl<Student> {
             student = candidateStundents.get(0);
         }
         return student;
-    }
+    } 
 }

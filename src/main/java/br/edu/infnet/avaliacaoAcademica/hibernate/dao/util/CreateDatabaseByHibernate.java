@@ -3,6 +3,7 @@ package br.edu.infnet.avaliacaoAcademica.hibernate.dao.util;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
+import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Question;
 import br.edu.infnet.avaliacaoAcademica.hibernate.domain.Student;
 
 /**
@@ -22,7 +23,7 @@ public class CreateDatabaseByHibernate {
     private static Configuration getConfiguration() {
         Configuration config = new Configuration();
 
-        config.configure(HIBERNATE_CFG_XML_FILE).addAnnotatedClass(Student.class);
+        config.configure(HIBERNATE_CFG_XML_FILE).addAnnotatedClass(Student.class).addAnnotatedClass(Question.class);
         return config;
     }
 }

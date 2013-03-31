@@ -14,7 +14,7 @@
 				</f:facet>
 	
 				<h:outputText value="1. Até agora, o curso está atingindo as minhas expectativas." />
-				<p:selectOneRadio id="pergunta1">
+				<p:selectOneRadio id="pergunta1" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q1.questionValue}">
 				    <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
 					<f:selectItem itemLabel="Concordo" itemValue="2" />
 					<f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
@@ -23,7 +23,7 @@
 				</p:selectOneRadio>
 	
 				<h:outputText value="2. Até agora, eu indicaria o curso para um amigo." />
-				<p:selectOneRadio id="pergunta2">
+				<p:selectOneRadio id="pergunta2" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q2.questionValue}">
                     <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
                     <f:selectItem itemLabel="Concordo" itemValue="2" />
                     <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
@@ -32,7 +32,7 @@
 				</p:selectOneRadio>
 	
 				<h:outputText value="3. Até agora, o curso me parece voltado para as necessidades do mercado." />
-				<p:selectOneRadio id="pergunta3">
+				<p:selectOneRadio id="pergunta3" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q3.questionValue}">
                     <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
                     <f:selectItem itemLabel="Concordo" itemValue="2" />
                     <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
@@ -41,7 +41,7 @@
 				</p:selectOneRadio>
 	
 				<h:outputText value="4. Até agora, a coordenação pedagógica parece comprometida com a qualidade do curso." />
-				<p:selectOneRadio id="pergunta4">
+				<p:selectOneRadio id="pergunta4" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q4.questionValue}">
                     <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
                     <f:selectItem itemLabel="Concordo" itemValue="2" />
                     <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
@@ -50,7 +50,7 @@
 				</p:selectOneRadio>
 	
 				<h:outputText value="5. Até agora, minha turma parece proporcionar um networking relevante para a minha carreira." />
-				<p:selectOneRadio id="pergunta5">
+				<p:selectOneRadio id="pergunta5" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q5.questionValue}">
                     <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
                     <f:selectItem itemLabel="Concordo" itemValue="2" />
                     <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
@@ -59,19 +59,129 @@
 				</p:selectOneRadio>
 	
 				<h:outputText value="6. Até agora, o atendimento de Secretaria que recebi está atingindo as minhas expectativas." />
-				<p:selectOneRadio id="pergunta6">
+				<p:selectOneRadio id="pergunta6" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q6.questionValue}">
                     <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
                     <f:selectItem itemLabel="Concordo" itemValue="2" />
                     <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
                     <f:selectItem itemLabel="Discordo" itemValue="4" />
                     <f:selectItem itemLabel="Discordo plenamente" itemValue="5" />
 				</p:selectOneRadio>
-	
-	
-				<f:facet name="footer">
-					<p:commandButton type="button" value="Enviar" icon="ui-icon-check" style="margin:0" />
-				</f:facet>
-			</p:panelGrid>
+            </p:panelGrid>
+            
+            <p:panelGrid columns="2">
+                <f:facet name="header">
+                    <h3>Avaliação do professor no módulo:</h3>
+                </f:facet>
+    
+                <h:outputText value="1. O professor contribuiu para o meu aprendizado." />
+                <p:selectOneRadio id="pergunta7" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q7.questionValue}">
+                    <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
+                    <f:selectItem itemLabel="Concordo" itemValue="2" />
+                    <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
+                    <f:selectItem itemLabel="Discordo" itemValue="4" />
+                    <f:selectItem itemLabel="Discordo plenamente" itemValue="5" />
+                </p:selectOneRadio>
+    
+                <h:outputText value="2. O professor é atencioso e esteve disponível para tirar dúvidas." />
+                <p:selectOneRadio id="pergunta8" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q8.questionValue}">
+                    <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
+                    <f:selectItem itemLabel="Concordo" itemValue="2" />
+                    <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
+                    <f:selectItem itemLabel="Discordo" itemValue="4" />
+                    <f:selectItem itemLabel="Discordo plenamente" itemValue="5" />
+                </p:selectOneRadio>
+    
+                <h:outputText value="3. O professor aproveitou bem o tempo em sala de aula." />
+                <p:selectOneRadio id="pergunta9" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q9.questionValue}">
+                    <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
+                    <f:selectItem itemLabel="Concordo" itemValue="2" />
+                    <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
+                    <f:selectItem itemLabel="Discordo" itemValue="4" />
+                    <f:selectItem itemLabel="Discordo plenamente" itemValue="5" />
+                </p:selectOneRadio>
+    
+                <h:outputText value="4. O professor utilizou o Moodle e outros recursos didáticos para ajudar no meu aprendizado." />
+                <p:selectOneRadio id="pergunta10" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q10.questionValue}">
+                    <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
+                    <f:selectItem itemLabel="Concordo" itemValue="2" />
+                    <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
+                    <f:selectItem itemLabel="Discordo" itemValue="4" />
+                    <f:selectItem itemLabel="Discordo plenamente" itemValue="5" />
+                </p:selectOneRadio>
+    
+                <h:outputText value="5. O professor aproveitou bem os recursos da sala de aula." />
+                <p:selectOneRadio id="pergunta11" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q11.questionValue}">
+                    <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
+                    <f:selectItem itemLabel="Concordo" itemValue="2" />
+                    <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
+                    <f:selectItem itemLabel="Discordo" itemValue="4" />
+                    <f:selectItem itemLabel="Discordo plenamente" itemValue="5" />
+                </p:selectOneRadio>
+    
+                <h:outputText value="6. Gostaria de cursar outros módulos com esse professor." />
+                <p:selectOneRadio id="pergunta12" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q12.questionValue}">
+                    <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
+                    <f:selectItem itemLabel="Concordo" itemValue="2" />
+                    <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
+                    <f:selectItem itemLabel="Discordo" itemValue="4" />
+                    <f:selectItem itemLabel="Discordo plenamente" itemValue="5" />
+                </p:selectOneRadio>
+            </p:panelGrid>
+            
+            <p:panelGrid columns="2">
+                <f:facet name="header">
+                    <h3>Avaliação de conteúdo e infra-estrutura no módulo:</h3>
+                </f:facet>
+    
+                <h:outputText value="1. Eu adquiri as competências propostas para o módulo." />
+                <p:selectOneRadio id="pergunta13" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q13.questionValue}">
+                    <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
+                    <f:selectItem itemLabel="Concordo" itemValue="2" />
+                    <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
+                    <f:selectItem itemLabel="Discordo" itemValue="4" />
+                    <f:selectItem itemLabel="Discordo plenamente" itemValue="5" />
+                </p:selectOneRadio>
+    
+                <h:outputText value="2. O módulo foi útil para o meu crescimento profissional." />
+                <p:selectOneRadio id="pergunta14" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q14.questionValue}">
+                    <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
+                    <f:selectItem itemLabel="Concordo" itemValue="2" />
+                    <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
+                    <f:selectItem itemLabel="Discordo" itemValue="4" />
+                    <f:selectItem itemLabel="Discordo plenamente" itemValue="5" />
+                </p:selectOneRadio>
+    
+                <h:outputText value="3. A carga horária do módulo foi apropriada." />
+                <p:selectOneRadio id="pergunta15" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q15.questionValue}">
+                    <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
+                    <f:selectItem itemLabel="Concordo" itemValue="2" />
+                    <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
+                    <f:selectItem itemLabel="Discordo" itemValue="4" />
+                    <f:selectItem itemLabel="Discordo plenamente" itemValue="5" />
+                </p:selectOneRadio>
+    
+                <h:outputText value="4. O acervo da biblioteca atendeu as necessidades desse módulo." />
+                <p:selectOneRadio id="pergunta16" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q16.questionValue}">
+                    <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
+                    <f:selectItem itemLabel="Concordo" itemValue="2" />
+                    <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
+                    <f:selectItem itemLabel="Discordo" itemValue="4" />
+                    <f:selectItem itemLabel="Discordo plenamente" itemValue="5" />
+                </p:selectOneRadio>
+    
+                <h:outputText value="5. A configuração do(s) computadore(s) e equipamentos da sala de aula e a qualidade do suporte foi apropriada." />
+                <p:selectOneRadio id="pergunta17" required="true" value="#{EVALUATION_FORM_MANAGED_BEAN.q17.questionValue}">
+                    <f:selectItem itemLabel="Concordo totalmente" itemValue="1" />
+                    <f:selectItem itemLabel="Concordo" itemValue="2" />
+                    <f:selectItem itemLabel="Não concordo nem discordo" itemValue="3" />
+                    <f:selectItem itemLabel="Discordo" itemValue="4" />
+                    <f:selectItem itemLabel="Discordo plenamente" itemValue="5" />
+                </p:selectOneRadio>
+    
+                <f:facet name="footer">
+                    <p:commandButton action="#{EVALUATION_FORM_MANAGED_BEAN.enviarAvaliacao}" value="Enviar" />
+                </f:facet>
+            </p:panelGrid>
 		</h:form>
 	</h:body>
 </html>
