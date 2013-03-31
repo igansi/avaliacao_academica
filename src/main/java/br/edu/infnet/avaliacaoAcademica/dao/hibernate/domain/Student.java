@@ -1,21 +1,14 @@
 package br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.property.QuestionDomainProperty;
 import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.property.StudentDomainProperty;
 
 @Entity
@@ -41,11 +34,11 @@ public class Student implements Serializable {
     @Column(name = StudentDomainProperty.COLUMN_PASSWORD_NAME, length = StudentDomainProperty.COLUMN_PASSWORD_LENGHT)
     private String password;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    /*@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = QuestionDomainProperty.TABLE_NAME,
             joinColumns = @JoinColumn(name = QuestionDomainProperty.COLUMN_STUDENT_ID_NAME),
-            inverseJoinColumns = @JoinColumn(name = StudentDomainProperty.COLUMN_ID_NAME))
-    List<Question> questions;
+            inverseJoinColumns = @JoinColumn(name = StudentDomainProperty.COLUMN_ID_NAME))*/
+//    List<Question> questions;
 
 	public Student() {}
 
@@ -89,20 +82,20 @@ public class Student implements Serializable {
         this.password = password;
     }
 
-    public List<Question> getQuestions() {
-        return questions;
-    }
-
-    public void setQuestions(List<Question> questions) {
-        this.questions = questions;
-    }
+//    public List<Question> getQuestions() {
+//        return questions;
+//    }
+//
+//    public void setQuestions(List<Question> questions) {
+//        this.questions = questions;
+//    }
 
     /**
      * Adiciona uma questão ao estudante.
      * @param question Questão a ser adicionada ao estudante
      */
     public void addQuestion(Question question) {
-        getQuestions().add(question);
+//        getQuestions().add(question);
     }
 
     @Override
@@ -115,8 +108,6 @@ public class Student implements Serializable {
         result = prime * result + ((name == null) ? 0 : name.hashCode());
         result = prime * result
                 + ((password == null) ? 0 : password.hashCode());
-        result = prime * result
-                + ((questions == null) ? 0 : questions.hashCode());
         return result;
     }
 
@@ -151,17 +142,11 @@ public class Student implements Serializable {
                 return false;
         } else if (!password.equals(other.password))
             return false;
-        if (questions == null) {
-            if (other.questions != null)
-                return false;
-        } else if (!questions.equals(other.questions))
-            return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return String.format("Student [id=%s, name=%s, email=%s, login=%s, password=%s, questions=%s]",
-                id, name, email, login, password, questions);
+        return String.format("Student [id=%s, name=%s, email=%s, login=%s, password=%s]", id, name, email, login, password);
     }
 }

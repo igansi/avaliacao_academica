@@ -10,7 +10,7 @@ import br.edu.infnet.avaliacaoAcademica.dao.core.DaoException;
 import br.edu.infnet.avaliacaoAcademica.dao.core.IGenericDao;
 import br.edu.infnet.avaliacaoAcademica.dao.hibernate.util.HibernateSessionFactory;
 
-public class GenericDaoImpl<E> implements IGenericDao<E> {
+public class HibernateGenericDaoImpl<E> implements IGenericDao<E> {
 
     private static final String ERROR_WHILE_CRUD_ENTITY_REPOSITORY_PATTERN_TEXT = "Error while %s entity %s in repository.";
     private static final String ADDING = "adding";
@@ -20,7 +20,7 @@ public class GenericDaoImpl<E> implements IGenericDao<E> {
     private Class<E> clazz;
     private SessionFactory factory;
 
-    public GenericDaoImpl(Class<E> clazz) {
+    public HibernateGenericDaoImpl(Class<E> clazz) {
         this.clazz = clazz;
         this.factory = HibernateSessionFactory.INSTANCE.getSessionFactory();
     }

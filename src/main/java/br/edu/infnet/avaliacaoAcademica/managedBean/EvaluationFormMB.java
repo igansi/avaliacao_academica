@@ -1,32 +1,34 @@
 package br.edu.infnet.avaliacaoAcademica.managedBean;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import br.edu.infnet.avaliacaoAcademica.AvailableNavigableUrls;
 import br.edu.infnet.avaliacaoAcademica.dao.core.DaoException;
-import br.edu.infnet.avaliacaoAcademica.dao.hibernate.StudentDao;
 import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Question;
 import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Student;
+import br.edu.infnet.avaliacaoAcademica.dao.jbdc.QuestionDao;
 import br.edu.infnet.avaliacaoAcademica.filter.SessionProperty;
 
 /**
  * {@link ManagedBean Controlador} para o formulário de avaliação acadêmica. 
  */
 @ManagedBean(name = ManagedBeanType.EVALUATION_FORM_MB)
-@SessionScoped
+@RequestScoped
 public class EvaluationFormMB {
 
     private static final String EVALUATION_SENT_SUCCESS = "Avalição acadêmica enviada com sucesso.";
     private static final String ERROR_SEND_EVALUATION = "Erro ao enviar a avalição acadêmica enviada com sucesso.";
 
     private Student loggedStudent;
-    private StudentDao dao;
+    private QuestionDao dao;
     
+    private List<Question> questions;
     private Question q1;
     private Question q2;
     private Question q3;
@@ -47,54 +49,53 @@ public class EvaluationFormMB {
 
     public EvaluationFormMB() {
         loggedStudent = ManagedBeanHelper.getAttributeOfSession(SessionProperty.LOGGED_USER.getPropertyName());
-        dao = new StudentDao();
-        q1 = createQuestion(1);
-        q2 = createQuestion(2);
-        q3 = createQuestion(3);
-        q4 = createQuestion(4);
-        q5 = createQuestion(5);
-        q6 = createQuestion(6);
-        q7 = createQuestion(7);
-        q8 = createQuestion(8);
-        q9 = createQuestion(9);
-        q10 = createQuestion(10);
-        q11 = createQuestion(11);
-        q12 = createQuestion(12);
-        q13 = createQuestion(13);
-        q14 = createQuestion(14);
-        q15 = createQuestion(15);
-        q16 = createQuestion(16);
-        q17 = createQuestion(17);
-    }
-    
-    private Question createQuestion(int questionId) {
-        return new Question(questionId);
+        questions =  new QuestionDao().findAllByStudentId(loggedStudent.getId());
+        if (!questions.isEmpty()) {
+            q1 = questions.get(0);
+            q2 = questions.get(1);
+            q3 = questions.get(2);
+            q4 = questions.get(3);
+            q5 = questions.get(4);
+            q6 = questions.get(5);
+            q7 = questions.get(6);
+            q8 = questions.get(7);
+            q9 = questions.get(8);
+            q10 = questions.get(9);
+            q11 = questions.get(10);
+            q12 = questions.get(11);
+            q13 = questions.get(12);
+            q14 = questions.get(13);
+            q15 = questions.get(14);
+            q16 = questions.get(15);
+            q17 = questions.get(16);
+        }
     }
 
     /**
      * Envia a avaliação acadêmica do estudante para o repositório.
      */
     public void enviarAvaliacao() {
-        loggedStudent.setQuestions(new ArrayList<Question>());
-        loggedStudent.addQuestion(q1);
-        loggedStudent.addQuestion(q2);
-        loggedStudent.addQuestion(q3);
-        loggedStudent.addQuestion(q4);
-        loggedStudent.addQuestion(q5);
-        loggedStudent.addQuestion(q6);
-        loggedStudent.addQuestion(q7);
-        loggedStudent.addQuestion(q8);
-        loggedStudent.addQuestion(q9);
-        loggedStudent.addQuestion(q10);
-        loggedStudent.addQuestion(q11);
-        loggedStudent.addQuestion(q12);
-        loggedStudent.addQuestion(q13);
-        loggedStudent.addQuestion(q14);
-        loggedStudent.addQuestion(q15);
-        loggedStudent.addQuestion(q16);
-        loggedStudent.addQuestion(q17);
+        List<Question> questions = new ArrayList<>();
+
+        questions.add(q1);
+        questions.add(q2);
+        questions.add(q3);
+        questions.add(q4);
+        questions.add(q5);
+        questions.add(q6);
+        questions.add(q7);
+        questions.add(q8);
+        questions.add(q9);
+        questions.add(q10);
+        questions.add(q11);
+        questions.add(q12);
+        questions.add(q13);
+        questions.add(q14);
+        questions.add(q15);
+        questions.add(q16);
+        questions.add(q17);
         try {
-            dao.update(loggedStudent);
+            dao.addAll(questions);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(EVALUATION_SENT_SUCCESS));
         } catch (DaoException e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(ERROR_SEND_EVALUATION));

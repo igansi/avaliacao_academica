@@ -26,5 +26,7 @@
 
 		<!-- Drop and re-create the database schema on startup -->
 		<property name="hibernate.ddl_auto">update</property>
+		
+		<mapping class="br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Student" />
 	</session-factory>
 </hibernate-configuration>

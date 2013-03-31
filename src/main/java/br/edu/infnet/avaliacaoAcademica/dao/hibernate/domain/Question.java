@@ -21,6 +21,8 @@ public class Question implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = QuestionDomainProperty.COLUMN_ID_NAME)
     private int id;
+    
+    private int studentId;
 
     @Column(name = QuestionDomainProperty.COLUMN_QUESTION_NUMBER_NAME, length = QuestionDomainProperty.COLUMN_QUESTION_NUMBER_LENGHT)
     private int questionId;
@@ -30,7 +32,8 @@ public class Question implements Serializable {
 
     public Question() {}
     
-    public Question(int questionId) {
+    public Question(int studentId, int questionId) {
+        this.studentId = studentId;
         this.questionId = questionId;
     }
 
@@ -58,6 +61,14 @@ public class Question implements Serializable {
         this.questionValue = questionValue;
     }
 
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -65,6 +76,7 @@ public class Question implements Serializable {
         result = prime * result + id;
         result = prime * result + questionId;
         result = prime * result + questionValue;
+        result = prime * result + studentId;
         return result;
     }
 
@@ -83,11 +95,14 @@ public class Question implements Serializable {
             return false;
         if (questionValue != other.questionValue)
             return false;
+        if (studentId != other.studentId)
+            return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return String.format("Question [id=%s, questionId=%s, questionValue=%s]", id, questionId, questionValue);
+        return String.format("Question [id=%s, studentId=%s, questionId=%s, questionValue=%s]",
+                id, studentId, questionId, questionValue);
     }
 }

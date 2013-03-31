@@ -13,7 +13,7 @@ import br.edu.infnet.avaliacaoAcademica.dao.hibernate.util.HibernateSessionFacto
 /**
  * DAO para persistência da entidade {@link Student estudante}.
  */
-public class StudentDao extends GenericDaoImpl<Student> {
+public class StudentDao extends HibernateGenericDaoImpl<Student> {
     
     private static final String SELECT_BY_FULLNAME = "FROM Student WHERE (LOWER(name) = :value)";
     private static final String SELECT_BY_LOGIN = "FROM Student WHERE (LOWER(login) = :value)";
