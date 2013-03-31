@@ -26,6 +26,9 @@
 			
 						<p:outputLabel for="password" value="Senha:" />
 						<p:password id="password" size="12" maxlength="12" redisplay="true" value="#{STUDENT_MANAGED_BEAN.student.password}" />
+						
+						<p:outputLabel for="administrator" value="Administrador:" />
+						<p:selectBooleanCheckbox id="administrator" value="#{STUDENT_MANAGED_BEAN.administrator}" />
 		
 					</p:panelGrid>
 					

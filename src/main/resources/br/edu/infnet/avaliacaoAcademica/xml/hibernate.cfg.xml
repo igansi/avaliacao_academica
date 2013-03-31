@@ -10,6 +10,7 @@
 		<property name="hibernate.connection.password">igansi</property>
 		<property name="hibernate.default_schema">public</property>
 		<property name="hibernate.jdbc.batch_size">30</property>
+		<property name="hibernate.query.substitutions">true 1, false 0</property>
 
 		<!-- JDBC connection pool (use the built-in) -->
 		<property name="connection.pool_size">1</property>

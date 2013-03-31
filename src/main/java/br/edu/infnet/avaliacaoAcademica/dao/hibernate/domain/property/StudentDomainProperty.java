@@ -17,6 +17,7 @@ public final class StudentDomainProperty {
     public static final byte COLUMN_USER_LOGIN_LENGHT = 8;
     public static final String COLUMN_PASSWORD_NAME = "password";
     public static final byte COLUMN_PASSWORD_LENGHT = 12;
+    public static final String COLUMN_CAPABILITY_NAME = "capability";
 
 	private StudentDomainProperty() {}
 }

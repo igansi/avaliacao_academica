@@ -15,7 +15,7 @@ import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.property.StudentDom
 @Table(name = StudentDomainProperty.TABLE_NAME)
 public class Student implements Serializable {
 
-    private static final long serialVersionUID = -1641520393231292357L;
+    private static final long serialVersionUID = -592913533067565618L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +33,10 @@ public class Student implements Serializable {
 
     @Column(name = StudentDomainProperty.COLUMN_PASSWORD_NAME, length = StudentDomainProperty.COLUMN_PASSWORD_LENGHT)
     private String password;
+    
+    @Column(name = StudentDomainProperty.COLUMN_CAPABILITY_NAME)
+    private int capability;
+    
 
     /*@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = QuestionDomainProperty.TABLE_NAME,
@@ -82,26 +86,19 @@ public class Student implements Serializable {
         this.password = password;
     }
 
-//    public List<Question> getQuestions() {
-//        return questions;
-//    }
-//
-//    public void setQuestions(List<Question> questions) {
-//        this.questions = questions;
-//    }
+    public int getCapability() {
+        return capability;
+    }
 
-    /**
-     * Adiciona uma questão ao estudante.
-     * @param question Questão a ser adicionada ao estudante
-     */
-    public void addQuestion(Question question) {
-//        getQuestions().add(question);
+    public void setCapability(int capability) {
+        this.capability = capability;
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
+        result = prime * result + capability;
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + id;
         result = prime * result + ((login == null) ? 0 : login.hashCode());
@@ -120,6 +117,8 @@ public class Student implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         Student other = (Student) obj;
+        if (capability != other.capability)
+            return false;
         if (email == null) {
             if (other.email != null)
                 return false;
@@ -147,6 +146,17 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("Student [id=%s, name=%s, email=%s, login=%s, password=%s]", id, name, email, login, password);
+        return String
+                .format("Student [id=%s, name=%s, email=%s, login=%s, password=%s, capability=%s]",
+                        id, name, email, login, password, capability);
     }
+
+    
+//    public List<Question> getQuestions() {
+//        return questions;
+//    }
+//
+//    public void setQuestions(List<Question> questions) {
+//        this.questions = questions;
+//    }
 }

@@ -10,6 +10,7 @@ import javax.faces.context.FacesContext;
 import br.edu.infnet.avaliacaoAcademica.dao.core.DaoException;
 import br.edu.infnet.avaliacaoAcademica.dao.hibernate.StudentDao;
 import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Student;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.StudentCapability;
 
 /**
  * {@link ManagedBean Controlador} para o objeto de domínio {@link Student estudante}. 
@@ -29,16 +30,19 @@ public class StudentMB {
 
     private Student student;
     private StudentDao dao;
+    private boolean administrator;
 
     public StudentMB() {
         student = new Student();
         dao = new StudentDao();
+        administrator = false;
     }
 
     /**
      * Adiciona um {@linkplain Student estudante}.
      */
     public void add() {
+        student.setCapability(administrator ? StudentCapability.ADMINISTRATOR.ordinal() : StudentCapability.SIMPLE.ordinal());
         try {
             dao.add(student);
             FacesContext.getCurrentInstance().addMessage(
@@ -69,6 +73,7 @@ public class StudentMB {
      * Edita um {@linkplain Student estudante}.
      */
     public void update() {
+        student.setCapability(administrator ? StudentCapability.ADMINISTRATOR.ordinal() : StudentCapability.SIMPLE.ordinal());
         try {
             dao.update(student);
             FacesContext.getCurrentInstance().addMessage(
@@ -85,6 +90,7 @@ public class StudentMB {
      */
     public void findByName() {
         student = dao.findByFullName(getStudent().getName());
+        setAdministrator(student.getCapability() == StudentCapability.ADMINISTRATOR.ordinal());
     }
 
     /**
@@ -100,5 +106,13 @@ public class StudentMB {
 
     public void setStudent(Student student) {
         this.student = student;
+    }
+
+    public boolean isAdministrator() {
+        return administrator;
+    }
+
+    public void setAdministrator(boolean administrator) {
+        this.administrator = administrator;
     }
 }

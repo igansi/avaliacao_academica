@@ -16,8 +16,8 @@
 			    <ui:insert name="appMenu">
 	                <h:form>
 					    <p:menu>
-				            <p:menuitem value="CRUD Aluno" url="/facets/student_crud.jsf" />
-				            <p:menuitem value="Responder Avaliação" url="/facets/evaluation_form.jsf" />
+				            <p:menuitem disabled="#{MENU_MANAGED_BEAN.enableCrud}" value="CRUD Aluno" url="/facets/student_crud.jsf" />
+				            <p:menuitem disabled="#{MENU_MANAGED_BEAN.disableEvaluation}" value="Responder Avaliação" url="/facets/evaluation_form.jsf" />
 				            <p:menuitem action="#{MENU_MANAGED_BEAN.logoff}" value="Logoff" />
 					    </p:menu>
 					</h:form>

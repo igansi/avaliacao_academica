@@ -26,7 +26,7 @@ public class EvaluationFormMB {
 
     private Student loggedStudent;
     private QuestionDao dao;
-    
+
     private List<Question> questions;
     private Question q1;
     private Question q2;
@@ -47,8 +47,9 @@ public class EvaluationFormMB {
     private Question q17;
 
     public EvaluationFormMB() {
+        dao = new QuestionDao();
         loggedStudent = ManagedBeanHelper.getAttributeOfSession(SessionProperty.LOGGED_USER.getPropertyName());
-        questions =  new QuestionDao().findAllByStudentId(loggedStudent.getId());
+        questions =  dao.findAllByStudentId(loggedStudent.getId());
         if (!questions.isEmpty()) {
             q1 = questions.get(0);
             q2 = questions.get(1);
@@ -67,7 +68,29 @@ public class EvaluationFormMB {
             q15 = questions.get(14);
             q16 = questions.get(15);
             q17 = questions.get(16);
+        } else {
+            q1 = createQuestion(1);
+            q2 = createQuestion(2);
+            q3 = createQuestion(3);
+            q4 = createQuestion(4);
+            q5 = createQuestion(5);
+            q6 = createQuestion(6);
+            q7 = createQuestion(7);
+            q8 = createQuestion(8);
+            q9 = createQuestion(9);
+            q10 = createQuestion(10);
+            q11 = createQuestion(11);
+            q12 = createQuestion(12);
+            q13 = createQuestion(13);
+            q14 = createQuestion(14);
+            q15 = createQuestion(15);
+            q16 = createQuestion(16);
+            q17 = createQuestion(17);
         }
+    }
+
+    private Question createQuestion(int questionId) {
+        return new Question(loggedStudent.getId(), questionId);
     }
 
     /**

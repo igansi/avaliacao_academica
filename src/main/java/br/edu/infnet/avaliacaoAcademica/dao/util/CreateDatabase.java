@@ -13,6 +13,7 @@ import org.hibernate.tool.hbm2ddl.SchemaExport;
 import br.edu.infnet.avaliacaoAcademica.dao.core.DaoException;
 import br.edu.infnet.avaliacaoAcademica.dao.hibernate.StudentDao;
 import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.Student;
+import br.edu.infnet.avaliacaoAcademica.dao.hibernate.domain.StudentCapability;
 import br.edu.infnet.avaliacaoAcademica.dao.jbdc.util.JbdcConnectionFactory;
 
 /**
@@ -49,8 +50,14 @@ public class CreateDatabase {
             try {
                 currentStatement = connection.createStatement();
                 currentStatement.execute(rawStatement);
+                connection.commit();
             } catch (SQLException e) {
                 e.printStackTrace();
+                try {
+                    connection.rollback();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
             } finally {
                 // Release resources
                 if (currentStatement != null) {
@@ -89,6 +96,7 @@ public class CreateDatabase {
         administrator.setEmail("administrador@admin.com.br");
         administrator.setLogin("admin");
         administrator.setPassword("admin");
+        administrator.setCapability(StudentCapability.ADMINISTRATOR.ordinal());
         return administrator;
     }
 
